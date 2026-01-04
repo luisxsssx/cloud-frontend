@@ -1,0 +1,51 @@
+<aside class="h-full bg-white border-r border-gray-200 flex flex-col transition-all duration-300">
+    <!-- Logo -->
+    <a routerLink="/home-cloud" class="p-6 border-b border-gray-200">
+        <h1 class="text-xl font-bold text-gray-900 flex items-center gap-3">
+            <svg class="w-8 h-8 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M10 2l8 6v10a2 2 0 01-2 2H4a2 2 0 01-2-2V8l8-6z" />
+                <path d="M10 6l6 4.5v7.5h-4v-6H8v6H4v-7.5L10 6z" fill="white" />
+            </svg>
+            <span>Home Cloud</span>
+        </h1>
+    </a>
+
+    <button class="cursor-pointer">
+        <app-add-data />
+    </button>
+
+    <!-- Navigation -->
+    <nav class="flex-1 p-4">
+        <ul class="space-y-1">
+            <li>
+                <a routerLink="/home-cloud" routerLinkActive="active"
+                    class="flex items-center gap-3 px-4 py-3 text-gray-700 hover:bg-gray-200 rounded-lg transition-colors group cursor-pointer">
+                    <svg class="w-5 h-5 text-gray-500 group-hover:text-blue-600" fill="none" stroke="currentColor"
+                        viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                    </svg>
+                    <span class="font-medium">Home</span>
+                </a>
+            </li>
+
+            <li>
+                @for (data of folder; track $index; let i = $index) {
+                <a routerLink="/my-unit" routerLinkActive="active" (click)="toggle(i)"
+                    class="flex items-center gap-3 px-4 py-3 text-gray-700 hover:bg-gray-200 rounded-lg transition-colors group cursor-pointer">
+                    <svg class="w-5 h-5 text-gray-500 group-hover:text-blue-600" fill="none" stroke="currentColor"
+                        viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z" />
+                    </svg>
+                    <span class="font-medium">{{data.folder_name}}</span>
+                </a>
+                @if (selectedIndex === i) {
+                <div>Element</div>
+                }
+                }
+
+            </li>
+        </ul>
+    </nav>
+</aside>
