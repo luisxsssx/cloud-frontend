@@ -15,8 +15,8 @@ export class DataService {
     return this.http.post<any>(environment.file, body);
   }
 
-  listFolders(folder_id: number): Observable<any> {
-    const body = { folder_id };
+  listFolders(account_id: number): Observable<any> {
+    const body = { account_id };
     return this.http.post<any>(environment.folder, body);
   }
 

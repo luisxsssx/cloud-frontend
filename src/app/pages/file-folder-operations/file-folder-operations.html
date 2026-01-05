@@ -1,0 +1,25 @@
+<button class="cursor-pointer" (click)="showOptions()">
+    <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="12" cy="5" r="2" fill="#9CA3AF" />
+        <circle cx="12" cy="12" r="2" fill="#9CA3AF" />
+        <circle cx="12" cy="19" r="2" fill="#9CA3AF" />
+    </svg>
+</button>
+
+@if (show) {
+<div class="absolute right-10 mt-2 w-48 bg-white border border-gray-200 rounded-xl shadow-xl z-50 
+               py-2 animate-fade-slide">
+    <button
+        class="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-blue-600 flex items-center gap-2 cursor-pointer">
+        Download
+    </button>
+    <button
+        class="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-blue-600 flex items-center gap-2 cursor-pointer">
+        Rename
+    </button>
+    <button
+        class="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-red-600 flex items-center gap-2 cursor-pointer">
+        Delete
+    </button>
+</div>
+}

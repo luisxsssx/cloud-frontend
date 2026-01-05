@@ -2,10 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { DataService } from '../../services/data-service';
 import { FolderModel } from '../../model/FolderModel';
 import { AddData } from "../../pages/add-data/add-data";
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-sidebar',
-  imports: [AddData],
+  imports: [AddData, RouterLink],
   templateUrl: './sidebar.html',
   styleUrl: './sidebar.css',
 })

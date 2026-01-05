@@ -13,7 +13,7 @@
         <tbody class="text-gray-700 text-sm">
             @for (data of data; track $index) {
             <tr class="border-b hover:bg-gray-100 transition cursor-pointer">
-                <td class="px-4 py-2 flex items-center gap-2">
+                <td class="px-1 py-2 flex items-center gap-2">
                     <!-- File icon -->
                     @if (data.size > 0) {
                     <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" stroke-width="2"
@@ -33,20 +33,24 @@
 
                     {{ data.name }}
                 </td>
-                <td class="px-4 py-2 text-gray-500">
+                <td class="px-1 py-2 text-gray-500">
                     <!-- {{ file.last_modified | date:'longDate' }}  -->
                 </td>
                 @if (data.size == 0) {
-                <div class="px-4 py-2 text-gray-500">
+                <div class="px-1 py-2 text-gray-500">
                     ---
                 </div>
                 }
 
                 @if (data.size > 0) {
-                <td class="px-4 py-2 text-gray-500">
+                <td class="px-1 py-2 text-gray-500">
                     {{ data.size }} KB
                 </td>
                 }
+
+                <td>
+                    <app-file-folder-operations />
+                </td>
 
             </tr>
             }

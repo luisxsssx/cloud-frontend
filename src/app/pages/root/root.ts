@@ -2,10 +2,11 @@ import { Component } from '@angular/core';
 import { DataService } from '../../services/data-service';
 import { Data } from '../../model/data';
 import { CommonModule } from '@angular/common';
+import { FileFolderOperations } from "../file-folder-operations/file-folder-operations";
 
 @Component({
   selector: 'app-root',
-  imports: [CommonModule],
+  imports: [CommonModule, FileFolderOperations],
   templateUrl: './root.html',
   styleUrl: './root.css',
   standalone: true
