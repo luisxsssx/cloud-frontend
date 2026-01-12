@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Data } from '../model/data';
 import { environment } from '../../environment/environment';
 
 @Injectable({
@@ -10,8 +9,8 @@ import { environment } from '../../environment/environment';
 export class DataService {
   constructor(private http: HttpClient) { }
 
-  listData(bucket_name: string, folder_name: string): Observable<any> {
-    const body = { bucket_name, folder_name };
+  listData(bucket_name: string, account_id: number, folder_name: string): Observable<any> {
+    const body = { bucket_name, account_id, folder_name };
     return this.http.post<any>(environment.file, body);
   }
 
@@ -20,8 +19,8 @@ export class DataService {
     return this.http.post<any>(environment.folder, body);
   }
 
-  createFolder(bucket_name: string, folder_name: string, account_id: number, bucket_id: number) {
-    const body = { bucket_name, folder_name, account_id, bucket_id };
+  createFolder(folder_name: string, bucket_name: string) {
+    const body = { folder_name, bucket_name };
     return this.http.post<any>(environment.createFolder, body);
   }
 }

@@ -2,7 +2,11 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../../services/data-service';
 import { FolderModel } from '../../model/FolderModel';
-import { FormBuilder, FormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
+import { AuthService } from '../../services/auth-service';
+import { Router } from '@angular/router';
+import { BucketService } from '../../services/bucket-service';
+import { BucketModel } from '../../model/BucketModel';
 
 @Component({
   selector: 'app-add-data',
@@ -15,30 +19,30 @@ export class AddData implements OnInit {
   show: boolean = false;
   addFolder: boolean = false;
   upFile: boolean = false;
+  username: string | null = null;
+  account_id: number | null = null;
+  bucket_name: string | null = null;
+  folder_name: string | null = null;
+  bucket_id: any | null = null;
+
+  bucket_model: BucketModel[] = [];
 
   selectedFile = "";
 
-  constructor(private service: DataService) { }
+  constructor(
+    private service: DataService,
+    private bucket_service: BucketService,
+    private auth_service: AuthService,
+    private router: Router) { }
 
   ngOnInit(): void {
-    //this.createFolder('luisbucket', 'folderFromFrontend', 1, 1);
+
+    //this.createFolder('fromfront', 'luisbucket')
+
   }
 
-  onFileChange(event: Event) {
-    const input = event.target as HTMLInputElement;
-    if (input.files && input.files.length > 0) {
-      this.selectedFile = input.files[0].name;
-    }
-  }
-
-  createFolder(form: any) {
-    const data = {
-      bucket_name: 'luisbucket',
-      folder_name: form.value.folder_name,
-      account_id: 1,
-      bucket_id: 1
-    };
-    this.service.createFolder(data.bucket_name, data.folder_name, data.account_id, data.bucket_id)
+  createFolder(folder_name: string, bucket_name: string) {
+    this.service.createFolder(folder_name, bucket_name)
       .subscribe({
         next: (data) => {
           this.folder = data;
@@ -58,4 +62,12 @@ export class AddData implements OnInit {
   showUpFile() {
     this.upFile = !this.upFile;
   }
+
+  onFileChange(event: Event) {
+    const input = event.target as HTMLInputElement;
+    if (input.files && input.files.length > 0) {
+      this.selectedFile = input.files[0].name;
+    }
+  }
+
 }

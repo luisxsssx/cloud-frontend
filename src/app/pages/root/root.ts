@@ -22,7 +22,7 @@ export class Root {
   }
 
   getData() {
-    this.data_service.listData('luisbucket', '').subscribe({
+    this.data_service.listData('luisbucket', 7, '').subscribe({
       next: (data) => {
         this.data = data;
         console.log(data);

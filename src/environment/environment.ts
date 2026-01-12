@@ -4,6 +4,8 @@ export const environment = {
     file: 'http://localhost:8080/cloud/files/list',
     deleteFile: 'http://localhost:8080/cloud/files/delete',
     folder: 'http://localhost:8080/cloud/list-folders',
-    createFolder: 'http://localhost:8080/cloud/create/folder'
-
+    createFolder: 'http://localhost:8080/cloud/create/folder',
+    registerAccount: 'http://localhost:8080/auth/register',
+    login: 'http://localhost:8080/auth/login',
+    bucket: 'http://localhost:8080/bucket/id'
 }

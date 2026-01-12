@@ -27,8 +27,7 @@
 <div class="fixed top-0 left-0 w-screen h-screen flex items-center justify-center
             bg-black/40 z-[9999] pointer-events-auto" (click)="addFolder = false">
 
-    <form #form="ngForm" class="bg-white p-6 rounded-xl shadow-xl" (click)="$event.stopPropagation()"
-        (ngSubmit)="(createFolder(form))">
+    <form #form="ngForm" class="bg-white p-6 rounded-xl shadow-xl" (click)="$event.stopPropagation()">
 
         <input type="text" name="folder_name" ngModel placeholder="Folder Name" required class="border p-2" />
 
