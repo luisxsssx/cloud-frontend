@@ -7,5 +7,6 @@ export const environment = {
     createFolder: 'http://localhost:8080/cloud/create/folder',
     registerAccount: 'http://localhost:8080/auth/register',
     login: 'http://localhost:8080/auth/login',
-    bucket: 'http://localhost:8080/bucket/id'
+    bucket: 'http://localhost:8080/bucket/id',
+    upFile: 'http://localhost:8080/cloud/files/upload'
 }

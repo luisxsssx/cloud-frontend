@@ -7,6 +7,7 @@ import { AuthService } from '../../services/auth-service';
 import { Router } from '@angular/router';
 import { BucketService } from '../../services/bucket-service';
 import { BucketModel } from '../../model/BucketModel';
+import { AddFolder } from '../../model/AddFolder';
 
 @Component({
   selector: 'app-add-data',
@@ -24,10 +25,16 @@ export class AddData implements OnInit {
   bucket_name: string | null = null;
   folder_name: string | null = null;
   bucket_id: any | null = null;
+  fileSelect: File | null = null;
+
 
   bucket_model: BucketModel[] = [];
 
   selectedFile = "";
+
+  add: AddFolder = {
+    folder_name: ''
+  }
 
   constructor(
     private service: DataService,
@@ -36,13 +43,40 @@ export class AddData implements OnInit {
     private router: Router) { }
 
   ngOnInit(): void {
-
-    //this.createFolder('fromfront', 'luisbucket')
-
+    this.account_id = this.auth_service.getAccountIdFromToken();
   }
 
-  createFolder(folder_name: string, bucket_name: string) {
-    this.service.createFolder(folder_name, bucket_name)
+  onFileSelected(event: Event): void {
+    const input = event.target as HTMLInputElement;
+
+    if (!input.files || input.files.length === 0) {
+      this.fileSelect = null;
+      return;
+    }
+
+    this.fileSelect = input.files[0];
+  }
+
+  onUpload(): void {
+    if (!this.fileSelect) {
+      console.error('No file selected');
+      return;
+    }
+
+    const data = {
+      bucket_name: 'luisbucket',
+      bucket_id: 5
+    };
+
+    this.service.upFile(this.fileSelect, data).subscribe({
+      next: res => console.log('Success', res),
+      error: err => console.error('Error', err)
+    });
+  }
+
+
+  createFolder() {
+    this.service.createFolder(this.add.folder_name, 'luisbucket')
       .subscribe({
         next: (data) => {
           this.folder = data;

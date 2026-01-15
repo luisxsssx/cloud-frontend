@@ -1,4 +1,5 @@
 export interface Data {
     name: string,
-    size: number
+    size: number,
+    last_mod: string
 }

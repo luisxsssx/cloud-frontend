@@ -1,7 +1,8 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpEvent } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from '../../environment/environment';
+import { BucketModel } from '../model/BucketModel';
 
 @Injectable({
   providedIn: 'root',
@@ -22,5 +23,18 @@ export class DataService {
   createFolder(folder_name: string, bucket_name: string) {
     const body = { folder_name, bucket_name };
     return this.http.post<any>(environment.createFolder, body);
+  }
+
+  upFile(file: File, data: any) {
+    const formData = new FormData();
+
+    formData.append('file', file);
+
+    formData.append(
+      'data',
+      new Blob([JSON.stringify(data)], { type: 'application/json' })
+    );
+
+    return this.http.post(environment.upFile, formData);
   }
 }

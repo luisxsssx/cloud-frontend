@@ -1,4 +1,5 @@
 export interface BucketModel {
-    bucket_id: number,
     bucket_name: string,
+    folder_name?: string,
+    bucket_id: number,
 }
