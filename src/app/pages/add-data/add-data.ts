@@ -11,7 +11,7 @@ import { AddFolder } from '../../model/AddFolder';
 
 @Component({
   selector: 'app-add-data',
-  imports: [CommonModule, CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule],
   templateUrl: './add-data.html',
   styleUrl: './add-data.css',
 })
@@ -64,8 +64,7 @@ export class AddData implements OnInit {
     }
 
     const data = {
-      bucket_name: 'luisbucket',
-      bucket_id: 5
+      bucket_id: 1
     };
 
     this.service.upFile(this.fileSelect, data).subscribe({
@@ -76,7 +75,7 @@ export class AddData implements OnInit {
 
 
   createFolder() {
-    this.service.createFolder(this.add.folder_name, 'luisbucket')
+    this.service.createFolder(this.add.folder_name)
       .subscribe({
         next: (data) => {
           this.folder = data;

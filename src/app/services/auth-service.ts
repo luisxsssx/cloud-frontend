@@ -1,7 +1,6 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { AccountModel } from '../model/AccountModel';
 import { catchError, Observable, tap, throwError } from 'rxjs';
 import { environment } from '../../environment/environment';
 import { AccountLogin } from '../model/AccountLogin';
@@ -47,8 +46,9 @@ export class AuthService {
     })
   }
 
-  register(account: AccountModel): Observable<String> {
-    return this.http.post<String>(environment.registerAccount, account)
+  register(username: string, email: string, password: string): Observable<any> {
+    const body = { username, email, password };
+    return this.http.post<String>(environment.registerAccount, body);
   }
 
   getToken(): string | null {
@@ -82,6 +82,12 @@ export class AuthService {
   getUsernameFromToken(): string | null {
     const payload = this.getTokenPayload();
     return payload ? payload['username'] : null;
+  }
+
+  logout(): void {
+    localStorage.removeItem(this.tokenKey);
+    localStorage.removeItem('username');
+    localStorage.removeItem('account_id');
   }
 
 }

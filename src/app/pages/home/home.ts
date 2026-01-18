@@ -6,10 +6,11 @@ import { CommonModule } from '@angular/common';
 import { DataService } from '../../services/data-service';
 import { BucketService } from '../../services/bucket-service';
 import { AuthService } from '../../services/auth-service';
+import { AccountConfig } from "../../account/account-config/account-config";
 
 @Component({
   selector: 'app-home',
-  imports: [CommonModule, Searchbar, RouterOutlet, Sidebar],
+  imports: [CommonModule, Searchbar, RouterOutlet, Sidebar, AccountConfig],
   templateUrl: './home.html',
   styleUrl: './home.css',
 })

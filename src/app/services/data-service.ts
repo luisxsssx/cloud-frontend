@@ -10,8 +10,8 @@ import { BucketModel } from '../model/BucketModel';
 export class DataService {
   constructor(private http: HttpClient) { }
 
-  listData(bucket_name: string, account_id: number, folder_name: string): Observable<any> {
-    const body = { bucket_name, account_id, folder_name };
+  listData(folder_name: string): Observable<any> {
+    const body = { folder_name };
     return this.http.post<any>(environment.file, body);
   }
 
@@ -20,8 +20,8 @@ export class DataService {
     return this.http.post<any>(environment.folder, body);
   }
 
-  createFolder(folder_name: string, bucket_name: string) {
-    const body = { folder_name, bucket_name };
+  createFolder(folder_name: string) {
+    const body = { folder_name };
     return this.http.post<any>(environment.createFolder, body);
   }
 
