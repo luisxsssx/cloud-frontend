@@ -1,46 +1,70 @@
 <app-landing-nav />
+
 <div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
     <div class="sm:mx-auto sm:w-full sm:max-w-sm">
-        <img src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=600" alt="Your Company"
-            class="mx-auto h-10 w-auto" />
-        <h2 class="mt-10 text-center text-2xl/9 font-bold tracking-tight text-gray-900">Sign in to your account</h2>
+        <div class="mx-auto flex h-10 w-10 items-center justify-center rounded-lg bg-[#3A5A40] font-bold text-white">
+            L
+        </div>
+
+        <h2 class="mt-10 text-center text-2xl font-bold tracking-tight text-gray-900">
+            Sign in to your account
+        </h2>
     </div>
 
     <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-        <form action="#" method="POST" class="space-y-6" (ngSubmit)="login()">
+        <form class="space-y-6" (ngSubmit)="login()">
+
+            <!-- Username -->
             <div>
-                <label for="username" class="block text-sm/6 font-medium text-gray-900">Username</label>
+                <label for="username" class="block text-sm font-medium text-gray-900">
+                    Username
+                </label>
+
                 <div class="mt-2">
-                    <input [(ngModel)]="account.username" id="username" type="text" name="text" required
-                        autocomplete="email"
-                        class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6" />
+                    <input [(ngModel)]="account.username" id="username" name="username" type="text" required class="block w-full rounded-md bg-white px-3 py-1.5 text-gray-900
+                   outline outline-1 outline-gray-300 placeholder:text-gray-400
+                   focus:outline-2 focus:outline-[#3A5A40] sm:text-sm" />
                 </div>
             </div>
 
+            <!-- Password -->
             <div>
                 <div class="flex items-center justify-between">
-                    <label for="password" class="block text-sm/6 font-medium text-gray-900">Password</label>
-                    <div class="text-sm">
-                        <a href="#" class="font-semibold text-indigo-600 hover:text-indigo-500">Forgot password?</a>
-                    </div>
+                    <label for="password" class="block text-sm font-medium text-gray-900">
+                        Password
+                    </label>
+
+                    <a href="#" class="text-sm font-semibold text-[#3A5A40] hover:text-[#2F4A34]">
+                        Forgot password?
+                    </a>
                 </div>
+
                 <div class="mt-2">
-                    <input [(ngModel)]="account.password" id="password" type="password" name="password" required
-                        autocomplete="current-password"
-                        class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6" />
+                    <input [(ngModel)]="account.password" id="password" name="password" type="password" required class="block w-full rounded-md bg-white px-3 py-1.5 text-gray-900
+                   outline outline-1 outline-gray-300 placeholder:text-gray-400
+                   focus:outline-2 focus:outline-[#3A5A40] sm:text-sm" />
                 </div>
             </div>
 
+            <!-- Submit -->
             <div>
-                <button type="submit"
-                    class="cursor-pointer flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm/6 font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Sign
-                    in</button>
+                <button type="submit" class="flex w-full cursor-pointer justify-center rounded-md
+                 bg-[#3A5A40] px-3 py-1.5 text-sm font-semibold text-white
+                 shadow-sm transition-colors
+                 hover:bg-[#2F4A34]
+                 focus-visible:outline-2 focus-visible:outline-offset-2
+                 focus-visible:outline-[#3A5A40]">
+                    Sign in
+                </button>
             </div>
+
         </form>
 
-        <p class="mt-10 text-center text-sm/6 text-gray-500">
+        <p class="mt-10 text-center text-sm text-gray-500">
             Don't have an account?
-            <a routerLink="/register" class="font-semibold text-indigo-600 hover:text-indigo-500">Sign up</a>
+            <a routerLink="/register" class="font-semibold text-[#3A5A40] hover:text-[#2F4A34]">
+                Sign up
+            </a>
         </p>
     </div>
 </div>

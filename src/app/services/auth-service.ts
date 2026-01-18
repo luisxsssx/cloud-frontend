@@ -19,7 +19,7 @@ export class AuthService {
     return this.http.post<LoginResponse>(environment.login, account)
       .pipe(tap((response: LoginResponse) => {
         localStorage.setItem(this.tokenKey, response.token);
-        localStorage.setItem('acount_id', response.account_id)
+        localStorage.setItem('account_id', response.account_id)
         localStorage.setItem('username', response.username);
       }),
         catchError(this.handleError)

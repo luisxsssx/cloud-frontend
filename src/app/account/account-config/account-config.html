@@ -1,17 +1,21 @@
 <div>
-    <button class="border rounded p-2 cursor-pointer" (click)="showConfig()">
+    <button class="border border-gray-300 rounded p-2 cursor-pointer
+               text-gray-700 hover:bg-[#F1F5F3] transition" (click)="showConfig()">
         Show Config
     </button>
 </div>
 
 @if(show) {
-<div class="border">
-    <button
-        class="w-full text-left text-sm text-gray-700 hover:bg-gray-100 hover:text-blue-600 flex items-center gap-2 cursor-pointer">
+<div class="border border-gray-200 rounded-md mt-1 bg-white shadow-sm">
+    <button class="w-full text-left text-sm text-gray-700
+               hover:bg-[#F1F5F3] hover:text-[#3A5A40]
+               flex items-center gap-2 cursor-pointer px-3 py-2 transition">
         Config
     </button>
-    <button (click)="showLogOut()"
-        class="w-full text-left text-sm text-gray-700 hover:bg-gray-100 hover:text-blue-600 flex items-center gap-2 cursor-pointer">
+
+    <button (click)="showLogOut()" class="w-full text-left text-sm text-gray-700
+               hover:bg-[#F1F5F3] hover:text-[#3A5A40]
+               flex items-center gap-2 cursor-pointer px-3 py-2 transition">
         Sign out
     </button>
 </div>
@@ -25,13 +29,18 @@
         </h2>
 
         <div class="flex justify-end gap-3">
-            <button (click)="logout()"
-                class="cursor-pointer rounded-md border border-red-500 px-4 py-2 text-sm text-red-600 hover:bg-red-500 hover:text-white transition">
+            <button (click)="logout()" class="cursor-pointer rounded-md
+                       border border-[#3A5A40]
+                       px-4 py-2 text-sm
+                       text-[#3A5A40]
+                       hover:bg-[#3A5A40] hover:text-white
+                       transition">
                 Sign out
             </button>
 
-            <button (click)="showOut = false"
-                class="cursor-pointer rounded-md border px-4 py-2 text-sm text-gray-600 hover:bg-gray-100 transition">
+            <button (click)="showOut = false" class="cursor-pointer rounded-md border
+                       px-4 py-2 text-sm text-gray-600
+                       hover:bg-gray-100 transition">
                 Cancel
             </button>
         </div>
