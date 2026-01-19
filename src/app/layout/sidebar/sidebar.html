@@ -41,10 +41,9 @@
             <!-- Folders -->
             <li>
                 @for (data of folder; track $index; let i = $index) {
-                <a routerLink="/my-unit" routerLinkActive="bg-[#E8F0EB] text-[#3A5A40]" (click)="toggle(i)" class="flex items-center gap-3 px-2 py-2
-                 text-gray-700 rounded-lg
-                 hover:bg-[#F1F5F3] transition-colors
-                 group cursor-pointer">
+
+                <a routerLinkActive="bg-[#E8F0EB] text-[#3A5A40]" (click)="toggle(i)"
+                    class="flex items-center gap-3 px-2 py-2 text-gray-700 rounded-lg hover:bg-[#F1F5F3] transition-colors group cursor-pointer">
 
                     <svg class="w-5 h-5 text-gray-500 group-hover:text-[#3A5A40]" fill="none" stroke="currentColor"
                         viewBox="0 0 24 24">
@@ -52,19 +51,23 @@
                             d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z" />
                     </svg>
 
-                    <span class="font-medium">
+                    <span class="font-medium" (click)="onSelect(data.folder_name)">
                         {{ data.folder_name }}
                     </span>
+
                 </a>
 
                 @if (selectedIndex === i) {
-                <div class="ml-9 mt-1 text-sm text-gray-500">
-                    Element
+                @for (item of folderInside; track $index) {
+                <div (click)="insideFolder(data.folder_name)" (click)="item.name"
+                    class="ml-9 mt-1 text-sm text-gray-500 cursor-pointer">
+                    <p (click)="onSelect(data.folder_name)">{{item.name}}</p>
                 </div>
                 }
                 }
-            </li>
 
+                }
+            </li>
         </ul>
     </nav>
 </aside>

@@ -16,7 +16,7 @@ export class AuthService {
   constructor(private http: HttpClient, private router: Router) { }
 
   login(account: AccountLogin): Observable<LoginResponse> {
-    return this.http.post<LoginResponse>(environment.login, account)
+    return this.http.post<LoginResponse>(environment.auth.login, account)
       .pipe(tap((response: LoginResponse) => {
         localStorage.setItem(this.tokenKey, response.token);
         localStorage.setItem('account_id', response.account_id)
@@ -48,7 +48,7 @@ export class AuthService {
 
   register(username: string, email: string, password: string): Observable<any> {
     const body = { username, email, password };
-    return this.http.post<String>(environment.registerAccount, body);
+    return this.http.post<String>(environment.auth.register, body);
   }
 
   getToken(): string | null {

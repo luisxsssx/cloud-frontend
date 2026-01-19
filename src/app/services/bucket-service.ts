@@ -8,9 +8,4 @@ import { Observable } from 'rxjs';
 })
 export class BucketService {
   constructor(private http: HttpClient) { }
-
-  getBucketById(account_id: number): Observable<any> {
-    const body = { account_id };
-    return this.http.post<any>(environment.bucket, body);
-  }
 }

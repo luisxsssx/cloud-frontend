@@ -24,9 +24,34 @@
                hover:bg-[#F1F5F3]
                hover:text-[#3A5A40]
                transition
-               flex items-center gap-2 cursor-pointer">
+               flex items-center gap-2 cursor-pointer" (click)="showRename()">
         Rename
     </button>
+
+    @if (showR) {
+
+    <div class="fixed top-0 left-0 w-screen h-screen flex items-center justify-center
+           bg-black/40 z-[9999] pointer-events-auto">
+
+        <form class="bg-white p-6 rounded-xl shadow-xl" (click)="$event.stopPropagation()">
+
+            <input type="text" required class="border border-gray-300 p-2 rounded-md w-full
+                   focus:outline-none focus:ring-2 focus:ring-[#3A5A40]" />
+
+            <div class="flex justify-end gap-2 mt-4">
+                <button type="submit" class="bg-[#3A5A40] hover:bg-[#2F4A34]
+                       text-white p-2 ml-2 rounded-md cursor-pointer transition">
+                    Create
+                </button>
+
+                <button class="px-4 py-2 bg-gray-300 hover:bg-gray-400 
+                       rounded cursor-pointer transition" (click)="showR = false">
+                    Cancel
+                </button>
+            </div>
+        </form>
+    </div>
+    }
 
     <button class="w-full text-left px-4 py-2 text-sm
                text-[#9B2C2C]

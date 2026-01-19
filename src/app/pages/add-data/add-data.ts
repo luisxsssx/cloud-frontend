@@ -79,6 +79,7 @@ export class AddData implements OnInit {
       .subscribe({
         next: (data) => {
           this.folder = data;
+          this.addFolder = false;
           console.log(data);
         }
       })

@@ -12,17 +12,22 @@ export class DataService {
 
   listData(folder_name: string): Observable<any> {
     const body = { folder_name };
-    return this.http.post<any>(environment.file, body);
+    return this.http.post<any>(environment.file.list, body);
   }
 
   listFolders(account_id: number): Observable<any> {
     const body = { account_id };
-    return this.http.post<any>(environment.folder, body);
+    return this.http.post<any>(environment.folder.l, body);
+  }
+
+  insideFolders(folder_name: string) {
+    const body = { folder_name };
+    return this.http.post<any>(environment.folder.list, body)
   }
 
   createFolder(folder_name: string) {
     const body = { folder_name };
-    return this.http.post<any>(environment.createFolder, body);
+    return this.http.post<any>(environment.folder.add, body);
   }
 
   upFile(file: File, data: any) {
@@ -35,6 +40,6 @@ export class DataService {
       new Blob([JSON.stringify(data)], { type: 'application/json' })
     );
 
-    return this.http.post(environment.upFile, formData);
+    return this.http.post(environment.file.upload, formData);
   }
 }

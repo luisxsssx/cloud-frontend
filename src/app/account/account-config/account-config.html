@@ -1,21 +1,27 @@
 <div>
     <button class="border border-gray-300 rounded p-2 cursor-pointer
                text-gray-700 hover:bg-[#F1F5F3] transition" (click)="showConfig()">
-        Show Config
+        Settings
     </button>
 </div>
 
 @if(show) {
-<div class="border border-gray-200 rounded-md mt-1 bg-white shadow-sm">
+<div class="fixed right-10 mt-1 z-[9999]
+           w-30 bg-white
+           border border-gray-200
+           rounded-md shadow-sm">
+
     <button class="w-full text-left text-sm text-gray-700
                hover:bg-[#F1F5F3] hover:text-[#3A5A40]
-               flex items-center gap-2 cursor-pointer px-3 py-2 transition">
+               flex items-center gap-2 cursor-pointer
+               px-3 py-2 transition justify-center">
         Config
     </button>
 
     <button (click)="showLogOut()" class="w-full text-left text-sm text-gray-700
                hover:bg-[#F1F5F3] hover:text-[#3A5A40]
-               flex items-center gap-2 cursor-pointer px-3 py-2 transition">
+               flex items-center gap-2 cursor-pointer
+               px-3 py-2 transition justify-center">
         Sign out
     </button>
 </div>

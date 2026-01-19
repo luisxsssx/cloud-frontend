@@ -11,6 +11,6 @@ export class FileFolderService {
 
   removeFile(file_id: number, file_name: string, bucket_name: string): Observable<any> {
     const body = { file_id, file_name, bucket_name };
-    return this.http.post<any>(environment.deleteFile, body);
+    return this.http.post<any>(environment.file.delete, body);
   }
 }

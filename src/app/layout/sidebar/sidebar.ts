@@ -3,6 +3,7 @@ import { DataService } from '../../services/data-service';
 import { FolderModel } from '../../model/FolderModel';
 import { AddData } from "../../pages/add-data/add-data";
 import { RouterLink } from '@angular/router';
+import { FolderResponse } from '../../model/FolderResponse';
 
 @Component({
   selector: 'app-sidebar',
@@ -12,6 +13,8 @@ import { RouterLink } from '@angular/router';
 })
 export class Sidebar implements OnInit {
   folder: FolderModel[] = [];
+  folderInside: FolderResponse[] = [];
+
 
   show: boolean = false;
   selectedIndex: number | null = null;
@@ -19,7 +22,7 @@ export class Sidebar implements OnInit {
   constructor(private service: DataService) { }
 
   ngOnInit(): void {
-    this.getFolders(1);
+    this.getFolders(2);
   }
 
   showList() {
@@ -28,6 +31,18 @@ export class Sidebar implements OnInit {
 
   toggle(i: number) {
     this.selectedIndex = this.selectedIndex === i ? null : i;
+  }
+
+  insideFolder(folder_name: string) {
+    this.service.insideFolders(folder_name).subscribe({
+      next: (data) => {
+        this.folderInside = data;
+        console.log('log', data);
+      },
+      error: (error) => {
+        console.log('Error', error)
+      }
+    })
   }
 
   getFolders(folder_id: number) {
@@ -40,5 +55,10 @@ export class Sidebar implements OnInit {
         console.log('Error', error)
       }
     })
+  }
+
+  onSelect(folder_name: string) {
+    console.log(folder_name)
+    this.insideFolder(folder_name)
   }
 }
