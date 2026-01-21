@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DataService } from '../../services/data-service';
 import { FolderModel } from '../../model/FolderModel';
 import { AddData } from "../../pages/add-data/add-data";
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { FolderResponse } from '../../model/FolderResponse';
 
 @Component({
@@ -19,7 +19,7 @@ export class Sidebar implements OnInit {
   show: boolean = false;
   selectedIndex: number | null = null;
 
-  constructor(private service: DataService) { }
+  constructor(private service: DataService, private router: Router) { }
 
   ngOnInit(): void {
     this.getFolders(2);
@@ -60,5 +60,9 @@ export class Sidebar implements OnInit {
   onSelect(folder_name: string) {
     console.log(folder_name)
     this.insideFolder(folder_name)
+  }
+
+  nav(folder_name: string) {
+    this.router.navigate(['home-cloud/', folder_name])
   }
 }

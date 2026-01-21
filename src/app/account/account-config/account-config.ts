@@ -24,9 +24,11 @@ export class AccountConfig {
   }
 
   logout(): void {
-    this.auth_service.logout();
-    this.showOut = false;
-    this.router.navigate(['login'])
+    setTimeout(() => {
+      this.auth_service.logout();
+      this.showOut = false;
+      this.router.navigate(['login'])
+    }, 2000);
   }
 
 }

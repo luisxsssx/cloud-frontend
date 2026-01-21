@@ -17,6 +17,7 @@ import { AddFolder } from '../../model/AddFolder';
 })
 export class AddData implements OnInit {
   folder: FolderModel[] = [];
+  bucket_model: BucketModel[] = [];
   show: boolean = false;
   addFolder: boolean = false;
   upFile: boolean = false;
@@ -26,10 +27,8 @@ export class AddData implements OnInit {
   folder_name: string | null = null;
   bucket_id: any | null = null;
   fileSelect: File | null = null;
-
-
-  bucket_model: BucketModel[] = [];
-
+  showAddSuccessfully: boolean = false;
+  isFadingOut: boolean = false;
   selectedFile = "";
 
   add: AddFolder = {

@@ -23,15 +23,17 @@ export class Login {
     private router: Router) { }
 
   login() {
-    this.account_service.login(this.account).subscribe({
-      next: (response) => {
-        console.log('Login successfully: ', response);
-        this.router.navigateByUrl('home-cloud/home')
-      },
-      error: (error) => {
-        console.log('Login error')
-      }
-    })
+    setTimeout(() => {
+      this.account_service.login(this.account).subscribe({
+        next: (response) => {
+          console.log('Login successfully: ', response);
+          this.router.navigateByUrl('home-cloud/home')
+        },
+        error: (error) => {
+          console.log('Login error')
+        }
+      })
+    }, 1000)
   }
 
 }

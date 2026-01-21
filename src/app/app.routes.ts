@@ -5,6 +5,7 @@ import { Login } from './auth/login/login';
 import { Register } from './auth/register/register';
 import { LandingPage } from './pages/landing-page/landing-page';
 import { authGuard } from './guards/auth-guard';
+import { FolderContent } from './pages/folder-content/folder-content';
 
 export const routes: Routes = [
     { path: '', component: LandingPage, pathMatch: 'full' },
@@ -15,6 +16,8 @@ export const routes: Routes = [
         component: Home,
         canActivate: [authGuard],
         children: [
-            { path: 'home', component: Root }]
+            { path: 'home', component: Root },
+            { path: ':folder_name', component: FolderContent }
+        ]
     }
 ];
