@@ -13,6 +13,7 @@ import { LandingNav } from "../../layout/landing-nav/landing-nav";
   styleUrl: './login.css',
 })
 export class Login {
+  showPassword: boolean = false;
 
   account: AccountLogin = {
     username: '',
@@ -34,6 +35,10 @@ export class Login {
         }
       })
     }, 1000)
+  }
+
+  public togglePassword(): void {
+    this.showPassword = !this.showPassword;
   }
 
 }

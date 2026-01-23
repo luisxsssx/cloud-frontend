@@ -5,17 +5,17 @@ import { AddData } from "../../pages/add-data/add-data";
 import { Router, RouterLink } from '@angular/router';
 import { FolderResponse } from '../../model/FolderResponse';
 
+
 @Component({
   selector: 'app-sidebar',
   imports: [AddData, RouterLink],
   templateUrl: './sidebar.html',
   styleUrl: './sidebar.css',
+  standalone: true
 })
 export class Sidebar implements OnInit {
   folder: FolderModel[] = [];
   folderInside: FolderResponse[] = [];
-
-
   show: boolean = false;
   selectedIndex: number | null = null;
 

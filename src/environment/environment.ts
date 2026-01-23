@@ -26,7 +26,9 @@ export const environment = {
     folder: {
         list: `${URL_BASE}/cloud/files/list`,
         l: `${URL_BASE}/cloud/list-folders`,
-        add: `${URL_BASE}/cloud/create/folder`
+        add: `${URL_BASE}/cloud/create/folder`,
+        delete: `${URL_BASE}/cloud/delete/folder`
+
     },
     file: {
         upload: `${URL_BASE}/cloud/files/upload`,

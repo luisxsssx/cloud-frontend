@@ -32,11 +32,38 @@
                     </a>
                 </div>
 
-                <div class="mt-2">
-                    <input [(ngModel)]="account.password" id="password" name="password" type="password" required class="block w-full rounded-md bg-white px-3 py-1.5 text-gray-900
-                   outline outline-1 outline-gray-300 placeholder:text-gray-400
-                   focus:outline-2 focus:outline-[#3A5A40] sm:text-sm" />
+                <div class="mt-2 relative">
+                    <input [type]="showPassword ? 'text' : 'password'" [(ngModel)]="account.password" id="password"
+                        name="password" type="password" class="w-full px-4 py-2 pr-10 border border-gray-300 rounded-lg
+               focus:outline-none focus:ring-2 focus:ring-blue-500" />
+
+                    <span class="absolute inset-y-0 right-0 flex items-center pr-3 cursor-pointer"
+                        (click)="togglePassword()">
+                        @if (!showPassword) {
+                        <!-- Eye Icon -->
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" viewBox="0 0 20 20"
+                            fill="currentColor">
+                            <path d="M10 12a2 2 0 100-4 2 2 0 000 4z" />
+                            <path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3
+                         s8.268 2.943 9.542 7
+                         c-1.274 4.057-5.064 7-9.542 7
+                         S1.732 14.057.458 10z
+                         M14 10a4 4 0 11-8 0
+                         4 4 0 018 0z" clip-rule="evenodd" />
+                        </svg>
+                        }
+
+                        @if (showPassword) {
+                        <!-- Eye Off Icon -->
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" viewBox="0 0 20 20"
+                            fill="currentColor">
+                            <path fill-rule="evenodd" d="M3.707 2.293a1 1 0 00-1.414 1.414l14 14
+                         a1 1 0 001.414-1.414l-14-14z" clip-rule="evenodd" />
+                        </svg>
+                        }
+                    </span>
                 </div>
+
             </div>
 
             <!-- Submit -->
