@@ -21,6 +21,7 @@ export const environment = {
         register: `${URL_BASE}/auth/register`
     },
     account: {
+        data: `${URL_BASE}/cloud/auth/user/list`,
 
     },
     folder: {

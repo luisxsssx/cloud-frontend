@@ -1,6 +1,6 @@
 export interface AccountModel {
     account_id: number,
-    usernane: string,
+    username: string,
     email: string,
     password: string,
     created_at: string,

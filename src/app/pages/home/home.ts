@@ -6,11 +6,11 @@ import { CommonModule } from '@angular/common';
 import { DataService } from '../../services/data-service';
 import { BucketService } from '../../services/bucket-service';
 import { AuthService } from '../../services/auth-service';
-import { AccountConfig } from "../../account/account-config/account-config";
+import { AccountMenu } from "../../account/account-menu/account-menu";
 
 @Component({
   selector: 'app-home',
-  imports: [CommonModule, Searchbar, RouterOutlet, Sidebar, AccountConfig],
+  imports: [CommonModule, Searchbar, RouterOutlet, Sidebar, AccountMenu],
   templateUrl: './home.html',
   styleUrl: './home.css',
 })
@@ -30,7 +30,6 @@ export class Home implements OnInit {
     this.username = this.auth_service.getUsernameFromToken();
     console.log('Account username from token:', this.username);
     this.account_id = this.auth_service.getAccountIdFromToken();
-
     console.log('Account ID from token:', this.account_id);
 
   }
