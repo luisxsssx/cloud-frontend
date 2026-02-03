@@ -7,7 +7,9 @@ import { environment } from '../../environment/environment';
   providedIn: 'root',
 })
 export class FileFolderService {
+
   constructor(private http: HttpClient) { }
+
   removeFile(file_name: string) {
     return this.http.request(
       'DELETE',
@@ -15,6 +17,21 @@ export class FileFolderService {
       {
         body: {
           file_name: file_name
+        },
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      }
+    );
+  }
+
+  deleteFolder(folder_name: string) {
+    return this.http.request(
+      'DELETE',
+      environment.folder.delete,
+      {
+        body: {
+          folder_name: folder_name
         },
         headers: {
           'Content-Type': 'application/json'

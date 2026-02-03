@@ -13,6 +13,7 @@ export class FileFolderOperations {
   show: boolean = false;
   showR: boolean = false;
   @Input() file_name!: string;
+  @Input() folder_name!: string;
 
   constructor(private service: FileFolderService) { }
 
